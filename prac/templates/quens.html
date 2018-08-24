@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+
+{% block breadcrumb %}
+<div class="container breadcrumb my-4">
+  <form method="post" novalidate>{% csrf_token %}
+    {% for field in form %}
+      <div class="form-group">
+        {{ field.label_tag }}
+
+        {% render_field field class="form-control" %}
+
+        {% if field.help_text %}
+          <small class="form-text text-muted">
+            {{ field.help_text }}
+          </small>
+        {% endif %}
+
+        {% if field.error_messages %}
+          <small class="form-text text-muted">
+            {{ field.error_messages }}
+          </small>
+        {% endif %}
+      </div>
+    {% endfor %}
+
+    <input type="submit" value="submit" class="btn btn-success">
+  </form>
+</div>
+{% endblock %}

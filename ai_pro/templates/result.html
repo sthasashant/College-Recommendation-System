@@ -1,0 +1,24 @@
+{% extends 'home.html' %}
+
+
+
+{% block content %}
+  <div class="row justify-content-center">
+    <div class="col-lg-4 col-md-6 col-sm-8">
+      <div class="card">
+        <div class="card-header">
+          The system recommeds you the following colleges.
+          sadl
+        </div>
+        <div class="card-body">
+        <ol class="list-group">
+          {% for name in college %}
+          <li class="list-group-item">{{name}}</li>
+          {% endfor %}
+        </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

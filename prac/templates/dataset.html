@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <div class="container">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th>Name</th>
+            <th>Pass result</th>
+            <th>Extra Curriculum</th>
+            <th>Expensive</th>
+            <th>Dress</th>
+            <th>Strict</th>
+            <th>Science</th>
+            <th>Management</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {{ddd.dress}}
+          {% for coll in data %}
+          <tr>
+            <td>{{coll.college.name}}</td>
+            <td>{{coll.pass_result}}</td>
+            <td>{{coll.extra_curriculum}}</td>
+            <td>{{coll.expensive}}</td>
+            <td>{{coll.dress}}</td>
+            <td>{{coll.strict}}</td>
+            <td>{{coll.science}}</td>
+            <td>{{coll.management}}</td>
+
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+{% endblock %}

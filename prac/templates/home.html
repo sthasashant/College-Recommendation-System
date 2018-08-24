@@ -1,0 +1,58 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static '/css/mystyle.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  </head>
+  <body>
+    {% include "navbar.html" %}
+
+    <!-- Background Image -->
+		<div class="bg-img" style="background-image: url('{% static 'images/2.jpg' %}');">
+			<div class="overlay"></div>
+		</div>
+		<!-- /Background Image -->
+
+
+
+    <div class="home-wrapper">
+			<div class="container">
+				<div class="row">
+
+					<!-- home content -->
+					<div class="col-md-10 col-md-offset-1">
+						<div class="home-content">
+              {% block content %}
+
+							<h1 class="white-text">College Recommendation System</h1>
+							<p class="white-text">
+
+                “College Recommendation system” is a type of recommendation system, which generally recommends college according to the user’s query. This project is an attempt to help people by giving them proper information about the college where their related education problems are solved.
+                People face different types of problem regarding college. They seek for college so that they can get proper education, but do not get proper information about where to visit and find the college. Searching college information and choosing it, takes more time.
+                There may not be the proper information about colleges Therefore, to eliminate this type of confusions
+                of choosing college our system helps in an easy way where they can get their solution easily.
+
+							</p>
+              {% if user.is_authenticated %}
+                <a class="btn btn-primary" href="{% url 'form' %}" >Find the college</a>
+              {% else %}
+							<button class="white-btn">Get Started!</button>
+							<button class="main-btn">Learn more</button>
+              {% endif %}
+
+              {% endblock %}
+						</div>
+					</div>
+					<!-- /home content -->
+
+				</div>
+			</div>
+		</div>
+    <!-- Header -->
+
+
+  </body>
+</html>
